@@ -1,0 +1,88 @@
+
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.main-content {
+    margin-left: 280px;
+    padding: 100px 40px 60px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: 80px;
+}
+
+
+.hero-image {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero-image img {
+        max-width: 100%;
+        height: auto;
+        max-height: 500px;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+/* Les 3 gros boutons en bas */
+.quick-actions {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.action-card {
+    width: 320px;
+    height: 180px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.action-card i {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* Couleurs exactes comme ton design */
+.btn-prendre-rdv {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+}
+
+.btn-mes-rdv {
+    background: linear-gradient(135deg, #1cc88a 0%, #17a673 100%);
+}
+
+.btn-resultats {
+    background: linear-gradient(135deg, #36b9cc 0%, #258391 100%);
+}
+
+/* Responsive mobile */
+@media (max-width: 992px) {
+    .main-content { margin-left: 0; padding: 100px 20px 40px; }
+    .quick-actions { flex-direction: column; align-items: center; }
+    .action-card { width: 90%; max-width: 400px; }
+}

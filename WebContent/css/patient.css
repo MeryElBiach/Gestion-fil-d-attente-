@@ -1,0 +1,396 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: 280px; /* Largeur comme l'image */
+    background: linear-gradient(180deg, #007bff 0%, #0056b3 100%); /* Dégradé bleu fidèle à l'image */
+    color: white;
+    padding: 20px 0;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    box-shadow: 4px 0 12px rgba(0, 123, 255, 0.2);
+    z-index: 1000;
+    transition: width 0.3s ease; /* Pour le toggle */
+}
+
+.sidebar.collapsed {
+    width: 70px; /* Masqué : juste icônes */
+}
+
+.sidebar .logo {
+    padding: 20px 24px;
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 30px;
+}
+
+.sidebar .logo i {
+    font-size: 28px;
+    color: #ffc107; /* Cœur jaune */
+}
+
+.sidebar .logo span {
+    color: white;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0 16px;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 8px;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.sidebar nav ul li a i {
+    margin-right: 12px;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.sidebar.collapsed .logo span,
+.sidebar.collapsed nav ul li a span {
+    display: none; /* Masque texte quand collapsed */
+}
+
+.sidebar.collapsed nav ul li a {
+    justify-content: center;
+    padding: 12px;
+}
+
+.sidebar.collapsed nav ul li a i {
+    margin-right: 0;
+}
+
+/* Sections actives (comme "Patients" dans l'image) */
+.sidebar nav ul li.active a {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Logout (tout en jaune maintenant) */
+.sidebar .logout {
+    margin-top: auto;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 16px;
+}
+
+.sidebar .logout a {
+    color: #ffc107 !important; /* Jaune pour le texte */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .logout a i {
+    margin-right: 12px;
+    font-size: 18px !important;
+    color: #ffc107 !important; /* Jaune pour l'icône */
+}
+
+.sidebar .logout a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar.collapsed .logout a span {
+    display: none;
+}
+
+.sidebar.collapsed .logout a {
+    justify-content: center;
+}
+
+/* ==================== HEADER (Recherche + Notif + Toggle) ==================== */
+.header {
+    height: 60px; /* Hauteur comme l'image */
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 280px; /* S'ajuste avec sidebar */
+    right: 0;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .header {
+    left: 70px; /* S'ajuste quand sidebar masquée */
+}
+
+.header .toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #6c757d;
+    cursor: pointer;
+    margin-right: 15px;
+    display: flex; /* Toujours visible pour le toggle */
+}
+
+.header .search-bar {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.header .search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    background: #f8f9fa;
+    font-size: 14px;
+}
+
+.header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header .header-actions .notification {
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    color: #6c757d;
+}
+
+.header .header-actions .notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .header-actions .user-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.header .header-actions .user-dropdown img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #dee2e6;
+}
+
+.header .header-actions .user-dropdown .user-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.header .header-actions .user-dropdown .user-name {
+    font-weight: 600;
+    color: #495057;
+}
+
+.header .header-actions .user-dropdown .user-role {
+    color: #6c757d;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    margin-left: 280px;
+    margin-top: 60px;
+    padding: 30px;
+    flex-grow: 1;
+    min-height: calc(100vh - 60px);
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: 70px;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #dee2e6;
+    padding: 8px 30px; /* Réduit padding vertical pour footer plus mince (de 20px à 8px) */
+    text-align: center;
+    font-size: 12px; /* Font plus petite pour compacité */
+    color: #6c757d;
+    position: fixed;
+    bottom: 0;
+    left: 280px;
+    right: 0;
+    z-index: 998;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: left 0.3s ease;
+    width: calc(100% - 280px - 60px); /* Diminue la largeur : soustrait sidebar + 30px padding chaque côté */
+    margin-left: 30px; /* Padding gauche pour matcher main-content */
+    line-height: 1.2; /* Réduit line-height pour texte plus serré */
+}
+
+.sidebar.collapsed ~ .footer {
+    left: 70px;
+    width: calc(100% - 70px - 60px); /* Ajuste quand sidebar collapsed */
+    margin-left: 30px;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #0056b3;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .header,
+    .main-content,
+    .footer {
+        left: 0;
+    }
+
+    .header .toggle-btn {
+        display: flex;
+    }
+
+    .header .search-bar {
+        max-width: 200px;
+    }
+}
+
+/* Champs ajoutés pour le toggle (bouton pour masquer/afficher la nav) */
+.sidebar.collapsed .logo span,
+.sidebar.collapsed nav ul li a span,
+.sidebar.collapsed .logout span {
+    display: none; /* Cache le texte */
+}
+
+.sidebar.collapsed nav ul li a,
+.sidebar.collapsed .logout a {
+    justify-content: center; /* Centre les icônes */
+    padding: 12px;
+}
+
+.sidebar.collapsed nav ul li a i,
+.sidebar.collapsed .logout a i {
+    margin-right: 0; /* Pas d'espace à droite */
+    font-size: 22px !important; /* Icônes plus grandes en mode masqué */
+}
+
+/* Ajuste header/main/footer quand masqué */
+.header,
+.main-content,
+.footer {
+    left: 280px; /* Position normale */
+    transition: left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .header,
+.sidebar.collapsed ~ .main-content,
+.sidebar.collapsed ~ .footer {
+    left: 70px; /* Libère l'espace */
+}
+
+/* Bouton Toggle dans la Sidebar (comme Kaggle) */
+.sidebar-toggle {
+    position: absolute;
+    bottom: 20px;
+    right: 10px; /* Position bas-droite, comme l'image */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent sur dégradé */
+    border: none;
+    border-radius: 50%; /* Rond comme un bouton discret */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffc107; /* Jaune pour icône */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001; /* Au-dessus du reste */
+}
+
+.sidebar-toggle:hover {
+    background: rgba(255, 255, 255, 0.3); /* Hover plus clair */
+    transform: scale(1.1); /* Petit zoom */
+}
+
+.sidebar-toggle i {
+    font-size: 14px; /* Icône petite */
+}
+
+.sidebar.collapsed .sidebar-toggle {
+    right: 5px; /* Ajuste position quand collapsed */
+}
+
+/* Masque le bouton sur mobile si besoin */
+@media (max-width: 992px) {
+    .sidebar-toggle {
+        display: none; /* Optionnel : cache sur mobile, utilise header si besoin */
+    }
+}

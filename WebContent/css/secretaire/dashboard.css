@@ -1,0 +1,246 @@
+/* ==========================================
+   DASHBOARD.CSS - Style pour le tableau de bord
+   ========================================== */
+
+/* Layout principal */
+body { 
+    background: #f4f6f9 !important; 
+}
+
+.content-wrapper {
+    margin-left: 280px;
+    margin-top: 90px;
+    padding: 20px 30px;
+    min-height: 100vh;
+}
+
+/* Titre de page - Style cohérent avec les autres pages */
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.page-title i {
+    color: #00b4d8 !important;
+    font-size: 2rem;
+}
+
+/* ==========================================
+   CARTES STATISTIQUES - Couleurs cohérentes
+   ========================================== */
+
+.stat-card {
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: none;
+    color: white;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Bleu - Total rendez-vous */
+.stat-card-blue {
+    background: linear-gradient(135deg, #0d6efd 0%, #0056d2 100%);
+}
+
+/* Vert - Patients */
+.stat-card-green {
+    background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+}
+
+/* Cyan clair - Médecins (même couleur que l'avatar) */
+.stat-card-cyan {
+    background: linear-gradient(135deg, #5DADE2 0%, #3498db 100%);
+}
+
+/* Jaune/Orange - Spécialités */
+.stat-card-yellow {
+    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+}
+
+.stat-card .card-body {
+    position: relative;
+    overflow: hidden;
+    padding: 25px 20px !important;
+}
+
+.stat-card .card-body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+.stat-card:hover .card-body::before {
+    transform: scale(1.2);
+}
+
+.stat-card i {
+    opacity: 0.9;
+    font-size: 2.2rem !important;
+    margin-bottom: 10px !important;
+}
+
+.stat-card h2 {
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 2.5rem !important;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* ==========================================
+   SECTION DERNIERS RENDEZ-VOUS
+   ========================================== */
+
+.card-header-custom {
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%) !important;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+}
+
+.card-header-custom h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* État vide */
+.empty-state {
+    padding: 40px 20px;
+}
+
+.empty-state i {
+    opacity: 0.3;
+    color: #00b4d8;
+}
+
+/* Item de rendez-vous */
+.rdv-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s;
+}
+
+.rdv-item:last-child {
+    border-bottom: none;
+}
+
+.rdv-item:hover {
+    background-color: #f8f9fa;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+}
+
+.rdv-item strong {
+    font-size: 1rem;
+}
+
+/* Badges d'état */
+.badge-etat {
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-confirme {
+    background-color: #198754;
+    color: white;
+}
+
+.badge-termine {
+    background-color: #6c757d;
+    color: white;
+}
+
+.badge-annule {
+    background-color: #dc3545;
+    color: white;
+}
+
+.badge-attente {
+    background-color: #ffc107;
+    color: #000;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 992px) {
+    .content-wrapper {
+        margin-left: 0;
+        margin-top: 70px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.7rem;
+    }
+    
+    .page-title i {
+        font-size: 1.9rem;
+    }
+    
+    .stat-card .card-body {
+        padding: 30px 20px !important;
+    }
+    
+    .stat-card h2 {
+        font-size: 2.5rem;
+    }
+    
+    .rdv-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .badge-etat {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-card .card-body {
+        padding: 25px 15px !important;
+    }
+    
+    .stat-card i {
+        font-size: 2rem !important;
+    }
+    
+    .stat-card h2 {
+        font-size: 2rem;
+    }
+    
+    .stat-card p {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,207 @@
+/* ======================================================
+   RDV Form Styles - Thème Bleu HealthCare (Adapté)
+   ====================================================== */
+
+/* Imports Font Awesome si pas déjà en head */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Global Form Styles */
+.main-content {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.1);
+    padding: 30px;
+}
+
+/* Titre Principal Adapté : Font Plus Grand, Strong, Couleur Plus Foncée */
+h2 {
+color: #4dabf7; /* Bleu plus foncé */
+    font-weight: bold; /* Strong/Bold */
+    font-size: 28px; /* Augmenté pour impact */
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #e3f2fd;
+    padding-bottom: 10px;
+}
+
+/* Alert Styles (pour erreurs) */
+.alert {
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Fieldset Styles (Sections) - Ajout Shadow Subtil */
+fieldset {
+    border: 1px solid #e3f2fd;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08); /* Fix : Shadow léger pour "petites cartes" (fieldsets) */
+}
+
+legend {
+   color: #4dabf7;
+    font-weight: 600;
+    padding: 0 10px;
+    background: white;
+    border-radius: 4px;
+}
+
+/* Infos Personnelles (Readonly) - Shadow sur Bloc si Wrapper */
+.infos-personnelles { /* Optionnel : Wrapper pour shadow sur infos perso */
+    box-shadow: 0 1px 4px rgba(0, 123, 255, 0.05); /* Shadow très léger pour bloc infos */
+    padding: 15px;
+    border-radius: 6px;
+    background: white;
+}
+
+fieldset p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #495057;
+}
+
+fieldset p strong {
+    color: #333333; /* Noir foncé pour noms/prénoms (comme demandé) */
+}
+
+/* Labels des Champs (Nom, Prénom, Email, etc.) - Noir Foncé */
+.form-label {
+    font-weight: 600;
+    color: #333333; /* Noir foncé pour tous labels (nom champs info perso, date, heure) */
+    margin-bottom: 8px;
+}
+
+/* Radio Buttons for Speciality (Icône + Style) */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.form-check:hover {
+    background-color: #e3f2fd;
+}
+
+.form-check input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.form-check-label {
+    font-size: 16px;
+    color: #495057;
+    margin-left: 5px;
+}
+
+/* Selects (Médecin, Heure) - Icônes Intégrées */
+.form-select, input[type="date"], input[type="time"] {
+    border: 2px solid #e3f2fd;
+    border-radius: 8px;
+    padding: 12px 40px 12px 45px; /* Espace pour icône */
+    font-size: 16px;
+    background-color: white;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.form-select:focus, input[type="date"]:focus, input[type="time"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Icônes pour Champs (Positionnées Absolument) */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.form-select, input[type="date"], input[type="time"] {
+    padding-left: 45px; /* Espace pour icône */
+}
+
+/* Boutons - Bleu Thème Nav */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: 8px;
+    padding: 12px 30px;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+    border-color: #545b62;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* Icônes Spécifiques */
+.fa-stethoscope { color: #007bff; } /* Spécialité */
+.fa-user-md { color: #28a745; } /* Médecin */
+.fa-calendar-alt { color: #ffc107; } /* Date */
+.fa-clock { color: #17a2b8; } /* Heure */

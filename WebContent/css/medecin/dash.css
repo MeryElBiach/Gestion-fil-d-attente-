@@ -1,0 +1,246 @@
+
+.main-content {
+    margin-left: 280px; 
+    margin-top: 60px; 
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;  
+}
+
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: 70px;
+}
+
+/* Welcome Section */
+.welcome {
+    background: linear-gradient(135deg, #007bff, #0056b3);  
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    margin-bottom: 1rem;
+}
+
+.welcome i {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    opacity: 0.9;
+}
+
+.welcome h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.welcome p {
+    margin: 0;
+    opacity: 0.9;
+    padding-left: 0;  /* Supprimé inline, géré ici */
+}
+
+/* Cards Générales (next-appointments, book-appointment, results, notifications) */
+.card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;  /* Pour alignement vertical dans rows */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.15);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.card-title i {
+    margin-right: 0.5rem;
+    opacity: 0.9;
+}
+
+/* Next Appointments Card */
+.next-appointments ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.next-appointments li {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.next-appointments li:hover {
+    background-color: #f8f9fa;
+}
+
+.next-appointments li i {
+    margin-right: 0.75rem;
+    color: #007bff;
+    width: 20px;
+    text-align: center;
+}
+
+.next-appointments li:last-child {
+    border-bottom: none;
+}
+
+.next-appointments span {
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+/* Book Appointment Card */
+.book-appointment .appointment-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.book-appointment p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.book-appointment .btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.book-appointment .btn:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+/* Results Card */
+.results {
+    background-color: #f8f9fa;
+}
+
+.results p {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.results .btn {
+    background-color: #28a745;
+    border-color: #28a745;
+    width: 100%;
+    padding: 0.75rem;
+    font-weight: bold;
+}
+
+.results .btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+}
+
+/* Notifications Card */
+.notifications ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notifications li {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.notifications li:hover {
+    background-color: #f8f9fa;
+}
+
+.notifications li i {
+    margin-right: 0.75rem;
+    color: #ffc107;
+    width: 20px;
+    text-align: center;
+}
+
+.notifications li:last-child {
+    border-bottom: none;
+}
+
+.notifications span {
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 70px;  /* Sidebar collapsed par défaut sur mobile */
+        padding: 1rem;
+    }
+
+    .welcome {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome i {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+
+    .card-header {
+        padding: 1rem;
+    }
+
+    .book-appointment .appointment-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        margin-left: 0;  /* Full-width sur petit écran */
+        padding: 0.5rem;
+    }
+
+    .welcome h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animations subtiles */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeInUp 0.5s ease-out;
+}

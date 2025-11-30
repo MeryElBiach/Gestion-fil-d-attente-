@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1. Arrière-plan (Dégradé sur le body pour l'ambiance, mais la carte reste blanche) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Suppression de l'image de fond et du before */
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Suppression du body::before */
+
+.login-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 950px;
+    padding: 20px;
+}
+
+.login-container {
+    background: white; /* Fond blanc pour la carte */
+    border-radius: 15px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    display: flex;
+    overflow: hidden;
+    max-height: 90vh;
+}
+
+/* 4. Centrage et Padding uniforme pour le formulaire */
+.login-form-section {
+    flex: 0 0 45%;
+    padding: 40px; /* Padding uniforme (Haut, Bas, Côtés) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer verticalement les éléments du formulaire */
+    background: white;
+}
+
+/* 3. Style du Logo (Texte en gras et icône jaune) */
+/* Section entière pour le logo */
+.logo-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    /* Aligner le logo à gauche dans la section de formulaire */
+    align-self: flex-start;
+}
+
+/* Style de l'icône (Cœur avec onde en jaune) */
+.logo-icon {
+    /* Simuler l'icône de cœur jaune fournie */
+    font-size: 28px;
+    margin-right: 10px;
+    color: #ffd700;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJTSURBVHgB3ZTRbxpRFMfZv4+nNlS7QJz4QY8u6oO+B70G6tCgoaG+A+oH0GvQoKF+B6k0KCiIikWkSgoq4gWJoH8B70GjQYvEh7S7h5nMzM7u7t7Xv+c/b9c7c2Zn7n7OzL+cGR1e9k9jY+M5v2WJjY2dMjs7e252dvZ4oI3Bqf6+rB0cHNzk+fPnCxcXF/22hOfr+fn5U2tr61P49i3p7u7u5ebmJubm5l5gZzJvYnBw8N+j0+n8gYyMDK9vHwQJzJcWJyenMzs7e0M8Hl9jZ2fng1c4Ozs7FxgYGBjPz8/3b2tr6+yBjgqC8g+4f/jw4Q93d3d/JpPJR0zPz89u9vf3V3p6elC32832+vr6k+VyeVpwcPD3s7OzH2Znpk96enoJ9Xq9P7W1tZ0tLS0zW/xPzs7O6+7u7s+3t7f/k8lkn11dXb98+/btj5l5v2/k6ekp0+n0B3t7e1+QyWSPg/0VHBwc/M0XL158097e3p+dnZ0/N/N+32V+fl6lUuof+Xy+WqVS+S4wMDBwe3v7rMzsXJ/k8/k3Jicnh9XV1V9hZzJ+FhYWDvX19b+Xy+V/7+/vj4+Pj/9nZmbGf3d395/m5ub+hXp5edlVVlYWq6urKxUVFW3BwMBAlpaW5v3222/f8Xg8y6D+C87Pz7/t7e19s7m5+Rk4+3xX4ODgw+7u7k92dnZ2Pz8//yKzM39v/v3b29v3Z2dne8PDwz5jZ2f/d3d3d2dnZ3f/i8/fP/H7z8/P/6qursrBweH/A43fG+iB0YqJAAAAAElFTkSuQmCC');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Texte HealthCare (Bleu et Gras) */
+.logo-text {
+    /* Grand et Bleu */
+    font-size: 24px; /* Taille légèrement augmentée */
+    font-weight: 700; /* Gras */
+    color: #4169e1; /* Le bleu utilisé dans votre CSS d'origine */
+}
+
+h2 {
+    color: #4169e1;
+    font-size: 26px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #718096;
+    font-size: 13px;
+    margin-bottom: 25px; /* Augmenter légèrement la marge */
+}
+
+.message {
+    border: 1px solid #f5c2c7;
+    background-color: #fff5f5;
+    color: #b91c1c;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 8px 0;
+    transition: border-color 0.3s;
+}
+
+.input-wrapper:focus-within {
+    border-bottom-color: #4169e1;
+}
+
+.input-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #cbd5e0;
+}
+
+input[type="text"],
+input[type="password"] {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #2d3748;
+    background: transparent;
+    padding: 4px 0;
+}
+
+input::placeholder {
+    color: #a0aec0;
+}
+
+.btn-login {
+    width: 100%;
+    background: linear-gradient(135deg, #4169e1 0%, #5b86e5 100%);
+    color: white;
+    border: none;
+    padding: 11px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 6px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
+}
+
+.forgot-password {
+    display: block;
+    text-align: left;
+    color: #4169e1;
+    text-decoration: none;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    position: relative;
+}
+
+.divider span {
+    background: white;
+    padding: 0 12px;
+    color: #718096;
+    font-size: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px; /* Petit ajustement */
+}
+
+/* 2. Style des boutons sociaux */
+.btn-facebook,
+.btn-google {
+    flex: 1;
+    padding: 10px; /* Légèrement plus grand */
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-facebook {
+    /* Bleu de Facebook */
+    background: #3b5998; 
+    color: white;
+}
+
+.btn-google {
+    /* Rouge de Google+ */
+    background: #db4437; 
+    color: white;
+}
+
+.btn-facebook:hover,
+.btn-google:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.create-account {
+    text-align: center;
+    font-size: 13px;
+    color: #718096;
+    margin-top: 25px; /* 6. Petit padding pour séparer du bas de la carte */
+    margin-bottom: 5px;
+}
+
+.create-account a {
+    color: #4169e1;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+/* 5. Section Image (Suppression de l'arrière-plan avec l'image) */
+.login-image-section {
+    flex: 1;
+    background: white; /* Fond blanc pour la section image */
+    background-size: cover;
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    padding: 20px; /* Ajoute un padding pour que l'image ne touche pas les bords */
+    position: relative;
+    overflow: hidden;
+}
+
+.login-image-section {
+    flex: 1;
+    background: white; /* Fond blanc de la carte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Important : Supprimer le padding pour que l'image touche les bords */
+    position: relative;
+    overflow: hidden;
+}
+
+.login-image-section::before {
+    content: none; /* Toujours pas de surcouche de couleur */
+}
+
+.login-image {
+    width: 100%;   /* L'image doit prendre toute la largeur de sa section */
+    height: 100%;  /* L'image doit prendre toute la hauteur de sa section */
+    object-fit: cover; /* Important : L'image couvrira l'espace, en rognant si nécessaire pour remplir */
+    object-position: center; /* Centrer l'image si elle est rognée */
+    position: relative;
+    z-index: 1;
+    border-radius: 0; /* Pas de border-radius pour qu'elle touche les bords */
+}
+
+/* 7. Image plus grande */
+.login-image {
+    width: 100%; /* L'image est maintenant plus grande et remplie mieux l'espace */
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover; /* Assurez-vous que l'image couvre la zone (à ajuster selon la taille de votre image réelle) */
+    position: relative;
+    z-index: 1;
+    border-radius: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .login-container {
+        flex-direction: column;
+    }
+    
+    .login-image-section {
+        min-height: 300px;
+    }
+    
+    .login-form-section {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 640px) {
+    .login-form-section {
+        padding: 30px 20px;
+    }
+    
+    h2 {
+        font-size: 26px;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+    }
+}

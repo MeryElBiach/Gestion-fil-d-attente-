@@ -1,0 +1,321 @@
+/* contact.css - Style moderne sans cartes */
+
+/* Global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e8f0fe 0%, #f5f7fa 100%);
+    min-height: 100vh;
+}
+
+/* Main content avec marge pour éviter le nav */
+.main-content {
+    margin-top: 90px !important;
+    padding-top: 15px !important;
+    padding-bottom: 25px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* Titre principal */
+.main-title {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-icon {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.8rem;
+    animation: ring 3s ease-in-out infinite;
+}
+
+@keyframes ring {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(-10deg); }
+    20%, 40% { transform: rotate(10deg); }
+}
+
+/* Box d'accueil */
+.welcome-box {
+    background: white;
+    padding: 18px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(13, 110, 253, 0.1);
+    max-width: 750px;
+    margin: 0 auto 2rem auto;
+    border-left: 4px solid #0d6efd;
+}
+
+.greeting-line {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.patient-name {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.intro-text {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #546e7a;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Grille de contact - 2x2 */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Item de contact */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(13, 110, 253, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0d6efd, #0a58ca);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+}
+
+.contact-item:hover::before {
+    transform: scaleX(1);
+}
+
+/* Cercle icône avec couleurs variées */
+.contact-icon-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Couleur rouge pour Adresse */
+.contact-item:nth-child(1) .contact-icon-circle {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.contact-item:nth-child(1):hover .contact-icon-circle {
+    box-shadow: 0 8px 22px rgba(255, 107, 107, 0.4);
+}
+
+/* Couleur verte pour Téléphone */
+.contact-item:nth-child(2) .contact-icon-circle {
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+    box-shadow: 0 5px 15px rgba(81, 207, 102, 0.3);
+}
+
+.contact-item:nth-child(2):hover .contact-icon-circle {
+    box-shadow: 0 8px 22px rgba(81, 207, 102, 0.4);
+}
+
+/* Couleur orange pour Email */
+.contact-item:nth-child(3) .contact-icon-circle {
+    background: linear-gradient(135deg, #ff922b 0%, #fd7e14 100%);
+    box-shadow: 0 5px 15px rgba(255, 146, 43, 0.3);
+}
+
+.contact-item:nth-child(3):hover .contact-icon-circle {
+    box-shadow: 0 8px 22px rgba(255, 146, 43, 0.4);
+}
+
+/* Couleur violette pour Horaires */
+.contact-item:nth-child(4) .contact-icon-circle {
+    background: linear-gradient(135deg, #845ef7 0%, #7048e8 100%);
+    box-shadow: 0 5px 15px rgba(132, 94, 247, 0.3);
+}
+
+.contact-item:nth-child(4):hover .contact-icon-circle {
+    box-shadow: 0 8px 22px rgba(132, 94, 247, 0.4);
+}
+
+.contact-icon-circle i {
+    font-size: 1.7rem;
+    color: white;
+}
+
+.contact-item:hover .contact-icon-circle {
+    transform: scale(1.08) rotate(5deg);
+}
+
+/* Contenu contact */
+.contact-content {
+    width: 100%;
+}
+
+.contact-title {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.contact-details {
+    color: #546e7a;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.extra-info {
+    color: #0d6efd;
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+/* Bouton retour avec dégradé bleu cohérent */
+.btn-return {
+    display: inline-block;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    color: white;
+    padding: 11px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 18px rgba(13, 110, 253, 0.3);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-return::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-return:hover::before {
+    left: 100%;
+}
+
+.btn-return:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(13, 110, 253, 0.4);
+    color: white;
+}
+
+.btn-return i {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-return:hover i {
+    transform: translateX(-5px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 80px !important;
+        padding: 15px 10px 20px 10px !important;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .title-icon {
+        font-size: 1.6rem;
+    }
+    
+    .welcome-box {
+        padding: 15px 25px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .intro-text {
+        font-size: 0.9rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .contact-item {
+        padding: 20px 15px;
+        min-height: 180px;
+    }
+    
+    .contact-icon-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .contact-icon-circle i {
+        font-size: 1.5rem;
+    }
+    
+    .btn-return {
+        width: 100%;
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}
